@@ -1,6 +1,7 @@
 import sys
 import re
 import requests
+import json
 API_KEY = ""
 
 def extract_ip_addresses(file_path):
@@ -25,13 +26,17 @@ def get_info_about_ip(ip):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 main.py <file_path>")
+        print("Usage: python main.py <file_path>")
     else:
         file_path = sys.argv[1]
         ip_addresses = extract_ip_addresses(file_path)
-        print(ip_addresses)
 
         for ip in ip_addresses:
             info_about_ip = get_info_about_ip(ip)
             if info_about_ip:
-                print(f"IP: {ip}, data: {info_about_ip}")
+                print(f"IP: {ip}")
+                print(f"Country: {info_about_ip['country_name']}")
+                print(f"ISP: {info_about_ip['isp']}")
+                print(f"Organization: {info_about_ip['organization']}")
+                print(f"Country TLD: {info_about_ip['country_tld']}")
+                print("-"*30)
