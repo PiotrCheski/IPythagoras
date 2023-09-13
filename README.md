@@ -7,7 +7,8 @@ This script is designed to extract and retrieve geolocation information for IP a
 Before using the script, ensure you have obtained an API key from [IPGeolocation.io](https://ipgeolocation.io/).
 
 
-![obraz](https://github.com/PiotrCheski/IPythagoras/assets/61555492/eeef9a29-6b25-49ba-bb68-a83081ab7537)
+![obraz](https://github.com/PiotrCheski/IPythagoras/assets/61555492/6b02303c-56d8-46c9-a617-133328419333)
+
 
 
 ## Usage
