@@ -2,7 +2,6 @@ import sys
 import os
 import re
 import requests
-import json
 import config
 
 API_KEY = config.API_KEY
@@ -45,7 +44,7 @@ def process_file(file_path):
                 print("-" * 30)
         else:
             print(f"The IP {ip} has been previously scanned.")
-            
+
 def process_directory(directory_path):
     for root, _, files in os.walk(directory_path):
         for file in files:
