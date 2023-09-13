@@ -2,7 +2,9 @@ import sys
 import re
 import requests
 import json
-API_KEY = ""
+import config
+#API_KEY = "Your API key"
+API_KEY = config.API_KEY
 
 def extract_ip_addresses(file_path):
     ip_pattern = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
@@ -10,7 +12,6 @@ def extract_ip_addresses(file_path):
     with open(file_path, "r") as file:
         content = file.read()
         ip_addresses = re.findall(ip_pattern, content)
-    
     return ip_addresses
 
 def get_info_about_ip(ip):
@@ -30,7 +31,8 @@ if __name__ == "__main__":
     else:
         file_path = sys.argv[1]
         ip_addresses = extract_ip_addresses(file_path)
-
+        if not ip_addresses:
+            print("No IP addresses were found in the given file.")
         for ip in ip_addresses:
             info_about_ip = get_info_about_ip(ip)
             if info_about_ip:
